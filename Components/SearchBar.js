@@ -2,9 +2,9 @@ import React from "react";
 import { Text, ImageBackground, StyleSheet, View } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 import { FontAwesome } from "@expo/vector-icons";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-const SearchBar = () => {
+const SearchBar = ({ getText }) => {
   const [Text, setText] = useState("");
   return (
     <View style={styles.view}>
@@ -14,6 +14,9 @@ const SearchBar = () => {
         style={styles.searchBar}
         onChangeText={(newText) => {
           setText(newText);
+        }}
+        onEndEditing={(text) => {
+          getText(text.nativeEvent.text);
         }}
       />
     </View>
