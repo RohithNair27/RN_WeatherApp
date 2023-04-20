@@ -15,6 +15,7 @@ const SearchBar = ({ getText }) => {
         onChangeText={(newText) => {
           setText(newText);
         }}
+        // the text passed is an object that's why we use nativeEvent.text
         onEndEditing={(text) => {
           getText(text.nativeEvent.text);
         }}
